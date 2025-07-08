@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "title": "Tea/Coffee Ordering System",
+    "description": "QR-based boardroom beverage system",
+    "tags": [
+      "HTML",
+      "Tailwind",
+      "JavaScript",
+      "Node.js"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Portfolio",
+    "description": "hello world",
+    "tags": [
+      "Html css js python"
+    ]
+  }
+]
