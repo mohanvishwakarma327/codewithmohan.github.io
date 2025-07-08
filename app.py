@@ -3,10 +3,11 @@ import json
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key'
+app.secret_key = 'your-secret-key'  # Replace with a secure value in production
 
 PROJECTS_FILE = 'projects.json'
 USERS_FILE = 'users.json'
+
 
 # --- Helpers ---
 def load_projects():
@@ -19,7 +20,8 @@ def save_projects(projects):
     with open(PROJECTS_FILE, 'w') as f:
         json.dump(projects, f, indent=2)
 
-# --- Public Portfolio Pages ---
+
+# --- Public Pages ---
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -27,6 +29,7 @@ def index():
 @app.route('/projects')
 def projects():
     return render_template('project.html', projects=load_projects())
+
 
 # --- Auth ---
 @app.route('/login', methods=['GET', 'POST'])
@@ -44,6 +47,7 @@ def login():
 def logout():
     session.clear()
     return redirect('/login')
+
 
 # --- Admin Panel ---
 @app.route('/admin')
@@ -78,5 +82,7 @@ def delete(project_id):
     save_projects(projects)
     return redirect('/admin')
 
+
+# --- Local Run Support (ignored by gunicorn) ---
 if __name__ == '__main__':
     app.run(debug=True)
