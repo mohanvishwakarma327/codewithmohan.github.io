@@ -7,19 +7,23 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
   <form method="POST" action="/login" class="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-    <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Admin Login</h2>
+    <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">🔐 Admin Login</h2>
 
     <label class="block mb-2 text-sm font-medium">Username</label>
     <input type="text" name="username" required
-      class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" />
+           class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" />
 
     <label class="block mb-2 text-sm font-medium">Password</label>
     <input type="password" name="password" required
-      class="w-full p-2 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-2 focus:ring-blue-300" />
+           class="w-full p-2 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-2 focus:ring-blue-300" />
 
     <button type="submit"
-      class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Login</button>
+            class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+      Login
+    </button>
   </form>
+
 </body>
 </html>

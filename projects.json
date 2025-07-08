@@ -2,20 +2,37 @@
   {
     "id": 1,
     "title": "Tea/Coffee Ordering System",
-    "description": "QR-based boardroom beverage system",
+    "description": "QR-based seat-wise beverage ordering system with real-time pantry dashboard.",
     "tags": [
       "HTML",
-      "Tailwind",
+      "Tailwind CSS",
       "JavaScript",
       "Node.js"
-    ]
+    ],
+    "github": "https://github.com/yourusername/tea-coffee-ordering",
+    "demo": "https://yourdemo.com/tea-coffee"
   },
   {
     "id": 2,
-    "title": "Portfolio",
-    "description": "hello world",
+    "title": "Portfolio Website",
+    "description": "Responsive portfolio with animation, resume download and project management backend.",
     "tags": [
-      "Html css js python"
-    ]
+      "HTML",
+      "Tailwind CSS",
+      "Lottie",
+      "Flask"
+    ],
+    "github": "https://github.com/yourusername/portfolio",
+    "demo": "https://codewithmohan.github.io"
+  },
+  {
+    "id": 3,
+    "title": "Mukesh VCNow",
+    "description": "Tech Support zoom webex",
+    "tags": [
+      "Html css java python"
+    ],
+    "github": "",
+    "demo": ""
   }
 ]
