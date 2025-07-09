@@ -61,10 +61,105 @@
     </a>
   </div>
 
+  <!-- Contact Form -->
+  <section class="px-6 py-16 bg-white border-t">
+    <h2 class="text-3xl font-semibold text-center text-blue-800 mb-10">Get in Touch</h2>
+    <form action="/contact" method="POST"
+          class="max-w-2xl mx-auto bg-gray-50 p-6 rounded-xl shadow space-y-4"
+          onsubmit="return handleFormSubmit(event)">
+
+      <div>
+        <label class="block font-medium mb-1">Name</label>
+        <input type="text" name="name" required pattern="[A-Za-z\s]{2,}"
+               class="w-full border px-4 py-2 rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Email</label>
+        <input type="email" name="email" required
+               class="w-full border px-4 py-2 rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-medium mb-1">Message</label>
+        <textarea name="message" rows="4" required minlength="10"
+                  class="w-full border px-4 py-2 rounded-md"></textarea>
+      </div>
+
+      <div style="display:none;">
+        <label>Leave this field empty</label>
+        <input type="text" name="honeypot" />
+      </div>
+
+      <button type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">
+        📩 Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- Inbox (Visible to Admin Only) -->
+  {% if session.admin %}
+  <section class="px-6 py-16 bg-gray-100 border-t">
+    <h2 class="text-3xl font-semibold text-center text-blue-800 mb-10">📥 Inbox</h2>
+    <div class="max-w-4xl mx-auto space-y-6">
+      {% for msg in messages %}
+        <div class="bg-white p-4 rounded shadow border-l-4 {% if msg[4] %}border-green-500{% else %}border-yellow-500{% endif %}">
+          <h3 class="font-bold text-lg text-blue-700">
+            {{ msg[1] }}
+            <span class="text-sm text-gray-500">&lt;{{ msg[2] }}&gt;</span>
+          </h3>
+          <p class="mt-2 text-gray-700">{{ msg[3] }}</p>
+          <div class="mt-4 flex gap-3">
+            <form method="post" action="/toggle-read/{{ msg[0] }}">
+              <button type="submit" class="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
+                {% if msg[4] %}Mark as Unread{% else %}Mark as Read{% endif %}
+              </button>
+            </form>
+            <form method="post" action="/delete-message/{{ msg[0] }}">
+              <button type="submit" class="px-4 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-sm">
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
+      {% else %}
+        <p class="text-center text-gray-500">No messages yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   <!-- Footer -->
   <footer class="text-center py-6 bg-gray-200 text-sm">
     &copy; 2025 CodeWithMohan. All rights reserved.
   </footer>
+
+  <!-- JS -->
+  <script>
+    function handleFormSubmit(event) {
+      const honeypot = document.querySelector('input[name="honeypot"]').value;
+      if (honeypot) {
+        alert("Spam detected!");
+        return false;
+      }
+      event.preventDefault();
+
+      const form = event.target;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      }).then(res => {
+        if (res.ok) {
+          alert("✅ Thank you! Your message was sent successfully.");
+          form.reset();
+        } else {
+          alert("❌ Something went wrong. Please try again later.");
+        }
+      });
+      return false;
+    }
+  </script>
 
 </body>
 </html>

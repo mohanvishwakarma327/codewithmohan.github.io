@@ -24,15 +24,5 @@
     ],
     "github": "https://github.com/yourusername/portfolio",
     "demo": "https://codewithmohan.github.io"
-  },
-  {
-    "id": 3,
-    "title": "Mukesh VCNow",
-    "description": "Tech Support zoom webex",
-    "tags": [
-      "Html css java python"
-    ],
-    "github": "",
-    "demo": ""
   }
 ]

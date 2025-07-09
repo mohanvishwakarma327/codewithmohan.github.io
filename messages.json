@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Mohan",
+    "email": "mohan@example.com",
+    "message": "Hello from your portfolio!"
+  },
+  {
+    "id": 3,
+    "name": "Mohan",
+    "email": "mohan@gmail.com",
+    "message": "Hello i m good how are you"
+  },
+  {
+    "id": 4,
+    "name": "mohan",
+    "email": "mohan@gmail.com",
+    "message": "hello how are you?\r\n\r\n",
+    "read": false
+  },
+  {
+    "id": 5,
+    "name": "Santy Vishwakarma",
+    "email": "santy@gmail.com",
+    "message": "Hello pls coonect with me"
+  }
+]

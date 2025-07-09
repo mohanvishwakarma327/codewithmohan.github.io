@@ -1,0 +1,19 @@
+<!-- templates/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white px-6 py-10">
+  <h1 class="text-3xl mb-6 text-blue-800 font-bold">Get in Touch</h1>
+  <form action="/contact" method="POST" class="space-y-4 max-w-xl">
+    <input type="text" name="name" placeholder="Name" required class="w-full border px-4 py-2 rounded-md" />
+    <input type="email" name="email" placeholder="Email" required class="w-full border px-4 py-2 rounded-md" />
+    <textarea name="message" placeholder="Your message" rows="4" required class="w-full border px-4 py-2 rounded-md"></textarea>
+    <div style="display:none;"><input type="text" name="honeypot" /></div>
+    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
+  </form>
+</body>
+</html>
